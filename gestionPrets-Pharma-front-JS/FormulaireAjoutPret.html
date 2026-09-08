@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Bon de Prêt</title>
+    <link rel="stylesheet" href="css/styleFormulAjout.css">
+</head>
+<body>
+    <a href="DashBoard.html" class="btn-retour">
+         ← Retour à l'accueil
+    </a>
+    <h1>Nouveau Bon de Prêt</h1>
+
+    <section id="form-section">
+        <form id="form-bon">
+            <label for="numBon">Numéro du bon</label>
+            <input type="text" id="numBon" required>
+
+            <label for="dateBon">Date</label>
+            <input type="date" id="dateBon" required>
+
+            <label for="depot">Dépôt</label>
+            <select id="depot" required>
+                <option value="">-- Choisir un dépôt --</option>
+            </select>
+
+            <label for="etablissement">Établissement</label>
+            <select id="etablissement" required>
+                <option value="">-- Choisir un établissement --</option>
+            </select>
+
+            <h2>Lignes du bon</h2>
+            <div id="lignes-container"></div>
+            <button type="button" id="btn-ajouter-ligne">+ Ajouter une ligne</button>
+
+            <div class="modal-actions">
+                <button type="submit" id="submit-btn">Enregistrer le bon</button>
+            </div>
+        </form>
+        <p id="form-message"></p>
+    </section>
+    
+<!-- Modal erreur -->
+<div id="modal-erreur" class="modal-erreur-overlay">
+    <div class="modal-erreur">
+
+        <div class="modal-erreur-icon">
+            ⚠️
+        </div>
+        <p id="message-erreur-modal">
+            Une erreur est survenue.
+        </p>
+
+        <button type="button" id="btn-fermer-erreur">
+            Compris
+        </button>
+
+    </div>
+</div>
+
+    <script src="js/apiAuth.js"></script>
+    
+    <script>
+        protegerPage();
+    </script>
+
+    <script src="js/gestionErreur.js"></script>
+    <script src="js/apiArticle.js"></script>
+    <script src="js/apiDepot.js"></script>
+    <script src="js/apiDepotStock.js"></script>
+    <script src="js/apiEtablissement.js"></script>
+    <script src="js/apiBonDePret.js"></script>
+    <script src="js/bonDePretForm.js"></script>
+
+
+<!-- Widget Chatbot -->
+<button id="chat-toggle-btn">💬</button>
+<div id="chat-window" class="chat-hidden">
+    <div class="chat-header">
+        <div>
+            <h3>Assistant Pharma</h3>
+            <span class="chat-status">● En ligne</span>
+        </div>
+        <button id="chat-close-btn">&times;</button>
+    </div>
+    <div id="chat-messages"></div>
+    <div class="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Posez votre question...">
+        <button id="chat-send-btn">➤</button>
+    </div>
+</div>
+
+<link rel="stylesheet" href="css/styleChatbot.css">
+<script src="js/chatbot.js"></script>
+ 
+</body>
+</html>

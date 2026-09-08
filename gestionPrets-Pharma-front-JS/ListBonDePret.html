@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Liste des Bons de Prêt</title>
+
+    <link
+        rel="stylesheet"
+        href="css/styleLisBon.css"
+    >
+</head>
+<body>
+    <a
+        href="DashBoard.html"
+        class="btn-retour"
+    >
+        ← Retour à l'accueil
+    </a>
+
+    <!-- Header -->
+    <div class="page-header">
+        <h1>
+            Liste des Bons de Prêt
+        </h1>
+        <a href="FormulaireAjoutPret.html" class="btn-ajouter">
+            + Nouveau bon de prêt
+        </a>
+    </div>
+
+    <!-- Recherche -->
+    <div class="search-bar">
+        <input
+            type="text"
+            id="input-recherche-bons"
+            placeholder="Rechercher un bon (numéro, dépôt, établissement...)"
+        >
+    </div>
+
+    <!--
+        Conteneur simple : bonDePretList.js construit lui-même
+        toute la structure .table-section / .table-header /
+        .table-container / .data-table et l'injecte ici.
+    -->
+    <div id="liste-bons"></div>
+
+    <!-- ============================= -->
+    <!-- MODALE CONSULTATION DU BON   -->
+    <!-- ============================= -->
+
+    <div id="modal-consultation" class="modal-erreur-overlay">
+
+        <div class="modal-erreur modal-consultation">
+
+            <div class="modal-erreur-icon">
+                📄
+            </div>
+
+            <h2>Détails du bon de prêt</h2>
+
+            <div id="details-bon"></div>
+<br><br>
+            <button type="button" id="btn-fermer-consultation">
+                Fermer
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+
+    <script src="js/apiAuth.js"></script>
+
+    <script>
+        protegerPage();
+    </script>
+
+    <script src="js/apiBonDePret.js"></script>
+
+    <script src="js/bonDePretList.js"></script>
+
+    <!-- Widget Chatbot -->
+<button id="chat-toggle-btn">💬</button>
+<div id="chat-window" class="chat-hidden">
+    <div class="chat-header">
+        <div>
+            <h3>Assistant Pharma</h3>
+            <span class="chat-status">● En ligne</span>
+        </div>
+        <button id="chat-close-btn">&times;</button>
+    </div>
+    <div id="chat-messages"></div>
+    <div class="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Posez votre question...">
+        <button id="chat-send-btn">➤</button>
+    </div>
+</div>
+
+<link rel="stylesheet" href="css/styleChatbot.css">
+<script src="js/chatbot.js"></script>
+</body>
+</html>

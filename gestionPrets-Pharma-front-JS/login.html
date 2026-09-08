@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion — Clinisys Pharma</title>
+    <link rel="stylesheet" href="css/styleLogin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="login-wrapper">
+        
+        <!-- Panneau Visuel (Gauche) -->
+        <div class="brand-side">
+            <div class="brand-content">
+                <div class="brand-badge">💊 Clinisys Pharma</div>
+                <h2>Gestion des Prêts Pharmaceutiques</h2>
+                <p>Plateforme sécurisée d'échanges inter-établissements et de suivi des stocks en temps réel.</p>
+            </div>
+            <div class="glow-sphere"></div>
+            <div class="glow-sphere-2"></div>
+        </div>
+
+        <!-- Formulaire de Connexion (Droite) -->
+        <div class="form-side">
+            <div class="login-box">
+                <div class="login-header">
+                    <h1>Bienvenue 👋</h1>
+                    <p>Connectez-vous à votre espace administrateur</p>
+                </div>
+
+                <form id="form-login">
+                    <div class="input-group">
+                        <label for="username">Nom d'utilisateur</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">👤</span>
+                            <input type="text" id="username" placeholder="ex: admin_pharma" required autocomplete="username">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Mot de passe</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="password" placeholder="••••••••" required autocomplete="current-password">
+                        </div>
+                    </div>
+
+                    <button type="submit" id="btn-submit">
+                        <span>Se connecter</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                </form>
+
+                <p id="login-message"></p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/apiAuth.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

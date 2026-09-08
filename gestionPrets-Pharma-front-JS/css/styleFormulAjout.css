@@ -1,0 +1,578 @@
+:root {
+    --primary: #7c9bf0;
+    --primary-hover: #6584e0;
+
+    --danger: #ef8b8b;
+    --danger-hover: #e57373;
+
+    --success: #7fc9a3;
+    --success-hover: #68b58e;
+
+    --warning: #ffe4b5;
+    --warning-text: #a5691a;
+
+    --bg: #f5f3ff;
+    --surface: #ffffff;
+
+    --border: #e5e1f5;
+
+    --text: #4a4560;
+    --text-muted: #9691ab;
+
+    --radius: 14px;
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+
+    background-color: var(--bg);
+    color: var(--text);
+
+    max-width: 720px;
+    margin: 0 auto;
+
+    padding: 40px 20px 80px;
+}
+
+
+/* =========================================
+   TITRES
+========================================= */
+
+h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 24px 0 26px;
+}
+
+
+h2 {
+    font-size: 15px;
+    font-weight: 700;
+
+    color: var(--text);
+
+    margin: 26px 0 14px;
+
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+
+/* =========================================
+   BOUTON RETOUR
+========================================= */
+
+.btn-retour {
+    display: inline-block;
+    margin: 20px 0 4px;
+    padding: 9px 16px;
+    background: #ffffff;
+    color: #0f3057;
+    border: 1px solid #dbe2e5;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.btn-retour:hover {
+    background: #f0bd84;
+    color: #f8f9fa;
+}
+
+
+/* =========================================
+   SECTION FORMULAIRE (carte)
+========================================= */
+
+#form-section {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 30px 32px;
+
+    box-shadow:
+        0 5px 18px rgba(124, 155, 240, 0.10);
+}
+
+
+/* =========================================
+   LABELS
+========================================= */
+
+#form-bon label {
+    display: block;
+
+    font-size: 12.5px;
+
+    font-weight: 600;
+
+    color: var(--text-muted);
+
+    margin: 18px 0 6px;
+}
+
+#form-bon label:first-of-type {
+    margin-top: 0;
+}
+
+
+/* =========================================
+   INPUTS / SELECTS
+========================================= */
+
+#form-bon input[type="text"],
+#form-bon input[type="date"],
+#form-bon select {
+    width: 100%;
+
+    padding: 11px 14px;
+
+    border: 1.5px solid var(--border);
+
+    border-radius: 10px;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    color: var(--text);
+
+    background-color: #fafaff;
+
+    outline: none;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease,
+        background-color 0.15s ease;
+}
+
+#form-bon input[type="text"]:focus,
+#form-bon input[type="date"]:focus,
+#form-bon select:focus {
+    border-color: var(--primary);
+
+    background-color: white;
+
+    box-shadow:
+        0 0 0 4px rgba(124, 155, 240, 0.15);
+}
+
+#form-bon select {
+    cursor: pointer;
+}
+
+
+/* =========================================
+   LIGNES DU BON
+========================================= */
+
+#lignes-container {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.ligne-bon {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background: var(--bg);
+
+    border: 1.5px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 10px 12px;
+
+    animation: ligne-apparition 0.18s ease;
+}
+
+@keyframes ligne-apparition {
+
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.ligne-bon .ligne-article {
+    flex: 2;
+
+    min-width: 0;
+
+    padding: 9px 12px;
+
+    border: 1.5px solid var(--border);
+
+    border-radius: 8px;
+
+    font-family: inherit;
+
+    font-size: 13.5px;
+
+    color: var(--text);
+
+    background-color: var(--surface);
+
+    outline: none;
+
+    cursor: pointer;
+
+    transition: border-color 0.15s ease;
+}
+
+.ligne-bon .ligne-article:focus {
+    border-color: var(--primary);
+}
+
+
+.ligne-bon .ligne-quantite {
+    flex: 0 0 110px;
+
+    padding: 9px 12px;
+
+    border: 1.5px solid var(--border);
+
+    border-radius: 8px;
+
+    font-family: inherit;
+
+    font-size: 13.5px;
+
+    color: var(--text);
+
+    background-color: var(--surface);
+
+    outline: none;
+
+    transition: border-color 0.15s ease;
+}
+
+.ligne-bon .ligne-quantite:focus {
+    border-color: var(--primary);
+}
+
+
+.ligne-bon .btn-supprimer-ligne {
+    flex-shrink: 0;
+
+    border: none;
+
+    padding: 9px 13px;
+
+    border-radius: 8px;
+
+    background: #ffe2e2;
+
+    color: #c55454;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    transition:
+        background-color 0.15s ease,
+        transform 0.15s ease;
+}
+
+.ligne-bon .btn-supprimer-ligne:hover {
+    background: #ffd3d3;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   BOUTON + AJOUTER UNE LIGNE
+========================================= */
+
+#btn-ajouter-ligne {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    margin-top: 14px;
+
+    padding: 12px;
+
+    background: transparent;
+
+    color: var(--primary);
+
+    border: 1.5px dashed var(--primary);
+
+    border-radius: 10px;
+
+    font-size: 13.5px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s ease,
+        border-style 0.15s ease;
+}
+
+#btn-ajouter-ligne:hover {
+    background: rgba(124, 155, 240, 0.08);
+
+    border-style: solid;
+}
+
+
+/* =========================================
+   ACTIONS DU FORMULAIRE
+========================================= */
+
+.modal-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 28px;
+}
+
+
+#submit-btn {
+    padding: 12px 26px;
+
+    background-color: var(--primary);
+
+    color: white;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    font-size: 14px;
+
+    box-shadow:
+        0 4px 10px rgba(124, 155, 240, 0.35);
+
+    transition:
+        background-color 0.15s ease,
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+#submit-btn:hover {
+    background-color: var(--primary-hover);
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 6px 14px rgba(124, 155, 240, 0.40);
+}
+
+
+/* =========================================
+   MESSAGE DU FORMULAIRE
+========================================= */
+
+#form-message {
+    margin-top: 16px;
+
+    font-size: 13.5px;
+
+    font-weight: 600;
+
+    text-align: right;
+}
+
+
+/* ============================= */
+/* MODAL ERREUR */
+/* ============================= */
+
+.modal-erreur-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(30, 30, 50, 0.45);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+
+    backdrop-filter: blur(3px);
+}
+
+.modal-erreur {
+    width: 400px;
+    max-width: 90%;
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+
+    animation: apparitionErreur 0.25s ease;
+}
+
+.modal-erreur-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 15px;
+
+    border-radius: 50%;
+
+    background: #fff3cd;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 32px;
+}
+
+.modal-erreur h2 {
+    margin: 0 0 10px;
+
+    color: #333;
+
+    text-align: center;
+}
+
+.modal-erreur p {
+    color: #666;
+
+    line-height: 1.6;
+
+    margin-bottom: 25px;
+}
+
+.modal-erreur button {
+    border: none;
+
+    padding: 11px 28px;
+
+    border-radius: 10px;
+
+    background: #7c9bf0;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.modal-erreur button:hover {
+    background: #6584e0;
+}
+
+@keyframes apparitionErreur {
+
+    from {
+        opacity: 0;
+        transform: translateY(-15px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 25px 15px 60px;
+    }
+
+    #form-section {
+        padding: 22px;
+    }
+
+    .ligne-bon {
+        flex-wrap: wrap;
+    }
+
+    .ligne-bon .ligne-article {
+        flex: 1 1 100%;
+    }
+
+    .ligne-bon .ligne-quantite {
+        flex: 1 1 auto;
+    }
+
+    .modal-actions {
+        justify-content: stretch;
+    }
+
+    #submit-btn {
+        width: 100%;
+    }
+
+    #form-message {
+        text-align: left;
+    }
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Prêts Pharmaceutiques</title>
+    <link rel="stylesheet" href="css/dashBoard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- BARRE D'ENTÊTE UTILISATEUR -->
+    <div class="top-nav">
+        <div class="user-info">
+            <span class="user-avatar">👤</span>
+            <span id="user-display-name">Administrateur</span>
+            <span class="status-dot" title="Session active"></span>
+        </div>
+        <button type="button" class="btn-deconnexion-top" id="btn-ouvrir-confirmation-deconnexion">
+            ⎋ Déconnexion
+        </button>
+    </div>
+
+    <!-- HEADER PRINCIPAL -->
+    <header class="dashboard-header">
+        <span class="eyebrow">Clinisys Pharma</span>
+        <h1>Gestion des Prêts Pharmaceutiques</h1>
+        <p class="subtitle">Inter-établissements — Pharmacie Centrale</p>
+    </header>
+
+    <!-- CARTES DU DASHBOARD -->
+    <main class="cards-grid">
+        <a href="ListEtablissement.html" class="nav-card card-teal">
+            <div class="card-icon-wrapper">🏥</div>
+            <div class="card-content">
+                <h3>Établissements</h3>
+                <p>Gérer les cliniques et hôpitaux bénéficiaires</p>
+            </div>
+            <span class="arrow">Accéder ➔</span>
+        </a>
+
+        <a href="ListArticles.html" class="nav-card card-coral">
+            <div class="card-icon-wrapper">💊</div>
+            <div class="card-content">
+                <h3>Articles</h3>
+                <p>Gérer le catalogue des articles pharmaceutiques</p>
+            </div>
+            <span class="arrow">Accéder ➔</span>
+        </a>
+
+        <a href="ListDepot.html" class="nav-card card-pro">
+            <div class="card-icon-wrapper">🏢</div>
+            <div class="card-content">
+                <h3>Dépôts</h3>
+                <p>Gérer les dépôts de stockage</p>
+            </div>
+            <span class="arrow">Accéder ➔</span>
+        </a>
+
+        <a href="AjoutDepotStock.html" class="nav-card card-amber">
+            <div class="card-icon-wrapper">📦</div>
+            <div class="card-content">
+                <h3>Stocks</h3>
+                <p>Gérer les quantités disponibles par dépôt</p>
+            </div>
+            <span class="arrow">Accéder ➔</span>
+        </a>
+
+        <a href="ListBonDePret.html" class="nav-card card-indigo">
+            <div class="card-icon-wrapper">📋</div>
+            <div class="card-content">
+                <h3>Bons de Prêt</h3>
+                <p>Consulter et suivre les bons de prêt existants</p>
+            </div>
+            <span class="arrow">Accéder ➔</span>
+        </a>
+
+        <a href="FormulaireAjoutPret.html" class="nav-card card-rose">
+            <div class="card-icon-wrapper">➕</div>
+            <div class="card-content">
+                <h3>Nouveau Bon de Prêt</h3>
+                <p>Créer un nouveau bon de prêt d'articles</p>
+            </div>
+            <span class="arrow">Accéder ➔</span>
+        </a>
+    </main>
+
+    <!-- MODALE CONFIRMATION DÉCONNEXION -->
+    <div id="modal-confirmation-deconnexion" class="modal-erreur-overlay">
+        <div class="modal-erreur">
+            <div class="modal-erreur-icon">⎋</div>
+            <h2>Confirmer la déconnexion</h2>
+            <p>Voulez-vous vraiment fermer votre session ?</p>
+            
+            <div class="modal-actions-confirmation">
+                <button type="button" id="btn-annuler-deconnexion" class="btn-annuler-suppression">
+                    Annuler
+                </button>
+                <button type="button" id="btn-confirmer-deconnexion" class="btn-confirmer-suppression">
+                    Se déconnecter
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/apiAuth.js"></script>
+    <script>
+        protegerPage();
+
+        // Affichage dynamique de l'utilisateur connecté
+        const username = localStorage.getItem("username");
+        if (username) {
+            document.getElementById("user-display-name").textContent = username;
+        }
+
+        const modalDeconnexion = document.getElementById("modal-confirmation-deconnexion");
+        const btnOuvrirDeconnexion = document.getElementById("btn-ouvrir-confirmation-deconnexion");
+        const btnAnnulerDeconnexion = document.getElementById("btn-annuler-deconnexion");
+        const btnConfirmerDeconnexion = document.getElementById("btn-confirmer-deconnexion");
+
+        btnOuvrirDeconnexion.addEventListener("click", () => modalDeconnexion.style.display = "flex");
+        btnAnnulerDeconnexion.addEventListener("click", () => modalDeconnexion.style.display = "none");
+        
+        modalDeconnexion.addEventListener("click", (event) => {
+            if (event.target === modalDeconnexion) modalDeconnexion.style.display = "none";
+        });
+
+        btnConfirmerDeconnexion.addEventListener("click", () => logout());
+    </script>
+
+    <!-- Widget Chatbot -->
+<button id="chat-toggle-btn">💬</button>
+<div id="chat-window" class="chat-hidden">
+    <div class="chat-header">
+        <div>
+            <h3>Assistant Pharma</h3>
+            <span class="chat-status">● En ligne</span>
+        </div>
+        <button id="chat-close-btn">&times;</button>
+    </div>
+    <div id="chat-messages"></div>
+    <div class="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Posez votre question...">
+        <button id="chat-send-btn">➤</button>
+    </div>
+</div>
+
+<link rel="stylesheet" href="css/styleChatbot.css">
+<script src="js/chatbot.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleChatBot.css">
+</head>
+<body>
+    <!-- Bouton flottant pour ouvrir le chat -->
+    <button id="chat-toggle-btn">💬</button>
+
+    <!-- Fenêtre de chat -->
+    <div id="chat-window" class="chat-hidden">
+        <div class="chat-header">
+            <div>
+                <h3>Assistant Pharma</h3>
+                <span class="chat-status">● En ligne</span>
+            </div>
+            <button id="chat-close-btn">&times;</button>
+        </div>
+
+        <div id="chat-messages"></div>
+
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Posez votre question...">
+            <button id="chat-send-btn">➤</button>
+        </div>
+    </div>
+</body>
+</html>

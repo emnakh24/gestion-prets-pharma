@@ -1,0 +1,13 @@
+# Backend Java/Eclipse
+target/
+.classpath
+.project
+.settings/
+*.class
+
+# Fichier contenant tes vrais secrets — NE JAMAIS PUBLIER
+application.properties
+
+# Fichiers système
+.DS_Store
+Thumbs.db
